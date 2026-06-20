@@ -1,6 +1,23 @@
 # Sistema de Vendas - Doceria — CEUB
 
 ## Como executar
+java -cp out br.ceub.Main
+Isso vai:
+
+Criar a pasta dados/ (se não existir) e popular alguns clientes e produtos de exemplo na primeira execução.
+Subir a API REST em http://localhost:8080.
+Abrir a tela de login do sistema (Swing).
+Login padrão: usuário admin, senha admin123.
+
+Testando a API REST (exemplo com curl)
+# 1. Login (gera o token JWT)
+curl -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"login":"admin","senha":"admin123"}'
+
+# 2. Usar o token retornado para acessar uma rota protegida
+curl http://localhost:8080/api/clientes \
+  -H "Authorization: Bearer SEU_TOKEN_AQUI"
 
 ```bash
 java -cp out br.ceub.Main
