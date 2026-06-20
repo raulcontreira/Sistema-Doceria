@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>br.ceub</groupId>
+    <artifactId>sistema-vendas-ceub</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Sistema de Vendas - CEUB</name>
+    <description>
+        Sistema de vendas com interface Swing e API REST protegida por JWT,
+        organizado em arquitetura em camadas. Nao possui dependencias
+        externas: usa apenas classes nativas do JDK (java.*, javax.* e o
+        modulo jdk.httpserver). O Maven e usado aqui apenas para facilitar
+        a importacao/compilacao no Eclipse (via m2e) e em outras IDEs,
+        nao para gerenciar bibliotecas de terceiros.
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <main.class>br.ceub.Main</main.class>
+    </properties>
+
+    <build>
+        <!--
+            O codigo-fonte fica em "src/br/ceub/..." (sem o subnivel
+            "main/java" do layout padrao do Maven) para preservar a
+            estrutura original do projeto. Por isso apontamos o
+            sourceDirectory diretamente para "src".
+        -->
+        <sourceDirectory>src</sourceDirectory>
+        <finalName>${project.artifactId}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>17</release>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Gera o MANIFEST.MF com a classe principal, permitindo
+                 "java -jar target/sistema-vendas-ceub.jar" depois do build. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${main.class}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Permite rodar o sistema diretamente com "mvn exec:java",
+                 sem precisar empacotar o .jar primeiro. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
