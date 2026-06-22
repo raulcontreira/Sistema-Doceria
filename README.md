@@ -48,8 +48,6 @@ Estrutura do Projeto
 
 O repositório é organizado em módulos, sendo os principais:
 
-Plain Text
-
 
 Sistema-Doceria/
 ├── sistema-vendas-backend/  # Módulo principal do backend (API REST)
