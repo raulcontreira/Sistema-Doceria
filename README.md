@@ -1,8 +1,8 @@
-Sistema Doceria
+Sistema
 
 Sobre o Projeto
 
-O Sistema Doceria é uma aplicação abrangente desenvolvida para gerenciar as operações de uma doceria, com foco principal em um backend robusto construído com Java e Spring Boot. O projeto é modular, separando as responsabilidades do backend (API REST) de um possível frontend ou módulo relacionado (sistema-vendas-ceub).
+O Sistema é uma aplicação abrangente desenvolvida para gerenciar as operações de uma doceria, com foco principal em um backend robusto construído com Java e Spring Boot. O projeto é modular, separando as responsabilidades do backend (API REST) de um possível frontend ou módulo relacionado (sistema-vendas-ceub).
 
 O módulo sistema-vendas-backend implementa uma API RESTful completa para operações CRUD (Create, Read, Update, Delete) em entidades como clientes, doces, usuários, vendas e itens de venda. Ele incorpora autenticação JWT (JSON Web Token) para segurança e utiliza Spring Security para controle de acesso. A arquitetura em camadas garante manutenibilidade, escalabilidade e organização do código, seguindo as melhores práticas de desenvolvimento de software.
 
@@ -49,7 +49,7 @@ Estrutura do Projeto
 O repositório é organizado em módulos, sendo os principais:
 
 
-Sistema-Doceria/
+Sistema/
 ├── sistema-vendas-backend/  # Módulo principal do backend (API REST)
 │   ├── src/main/java/com/sistema/doceria/
 │   │   ├── controller/      # Controladores REST
